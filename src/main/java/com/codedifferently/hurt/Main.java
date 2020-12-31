@@ -24,6 +24,9 @@ public class Main {
         String output = (new Main()).readRawDataToString();
         System.out.println(output);
         //here we need an arrayList to use and where we will do the operations
+        ArrayList<String> finalized = trimList(convertToArray(output));
+        populateLinkedMap(finalized);
+        formatOutput();
     }
 
     /* First method: Turn the product string into an arrayList seperated 
