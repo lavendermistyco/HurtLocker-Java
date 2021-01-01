@@ -1,6 +1,7 @@
 package com.codedifferently.hurt;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -37,19 +38,29 @@ public class Main {
         //Remove the special characters except for the # , . and / (why? we need these
         // to determine the price and delimination and date) 
         //Replace them with a " "
+        String string = str.replaceAll("[^0-9a-zA-Z-#./]+", " "); 
+
 
         //Convert everything into lowerCase
 
+        string = string.toLowerCase();
+
         //Intialize return arrayList as a list splited by the ## 
+        ArrayList<String> list = new ArrayList<>(Arrays.asList(string.split("##")));
 
 
         //Operate on the arrayList so that we remove the "name" signature from each element
-
+        for(int i = 0; i < list.size(); i++){
+            //naMe COokIes price 2.25 type Food expiration 3/22/2016
+            list.set(i, list.get(i).substring(5));
+            //COokIes price 2.25 type Food expiration 3/22/2016
+        }
 
         //set the intialSze to the size of the arrayList (This will be the true count of products)
-
+        initialSze = list.size(); 
 
         //return the arrayList
+        return list; 
     }
 
     /* Second method:Remove the list elements that are not starting with the name of the product. This denotes an 
