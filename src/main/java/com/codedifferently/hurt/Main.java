@@ -52,7 +52,7 @@ public class Main {
         //return the arrayList
     }
 
-    /* Second method:Remove the list elements that are not starting with "price" This denotes an 
+    /* Second method:Remove the list elements that are not starting with the name of the product. This denotes an 
     error */
 
     public static ArrayList<String> trimList(ArrayList<String> arr){
@@ -61,7 +61,7 @@ public class Main {
              //In each list element, create a string array split by the " " 
             //(This separates the element into smaller elements like price, type, expiration etc)
          
-                //if the first element in the String array is not equal tp price remove it
+                //if the first element in the String array is equal to price remove it
 
                 //else if the third element in the String array doesn't have a number but says "type" then remove it
 
