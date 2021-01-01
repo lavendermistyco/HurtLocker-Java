@@ -40,13 +40,12 @@ public class Main {
     /* First method: Turn the product string into an arrayList seperated 
       by the delimiter [^. @....etc] */
 
-    private static ArrayList<String> convertToArray(String str){
+    public static ArrayList<String> convertToArray(String str){
         //What do we need to do to the String before we operate on it?
         //Remove the special characters except for the # , . and / (why? we need these
         // to determine the price and delimination and date) 
         //Replace them with a " "
         String string = str.replaceAll("[^0-9a-zA-Z-#./]+", " "); 
-
 
         //Convert everything into lowerCase
 
@@ -61,7 +60,7 @@ public class Main {
             //naMe COokIes price 2.25 type Food expiration 3/22/2016
             System.out.println("Element " + i + " in list before edits is " + list.get(i).toString());
             list.set(i, list.get(i).substring(5));
-            //COokIes price 2.25 type Food expiration 3/22/2016
+            //cookies price 2.25 type food expiration 3/22/2016
             System.out.println("Element " + i + " in list is " + list.get(i).toString());
         }
 
@@ -75,7 +74,7 @@ public class Main {
     /* Second method:Remove the list elements that are not starting with the name of the product. This denotes an 
     error */
 
-    private static ArrayList<String> trimList(ArrayList<String> arr){
+    public static ArrayList<String> trimList(ArrayList<String> arr){
         int count = 0;
         //Loop through each of the elements in arr
         ArrayList<String> trimmedList = new ArrayList<>();
@@ -83,6 +82,8 @@ public class Main {
              //In each list element, create a string array split by the " " 
             //(This separates the element into smaller elements like price, type, expiration etc)
             String[] items = arr.get(i).split(" ");
+            //Good Data => cookies price 2.25 type food expiration 3/22/2016
+            // Bad Data => price  type food expiration 3/22/2016
                 //if the first element in the String array is equal to price remove it
                 if(!items[0].equals("price") && !items[2].equals("type")){
                     trimmedList.add(arr.get(i));
@@ -98,11 +99,15 @@ public class Main {
 
 
     /*Third method: Put the information into a LinkedHashmap, this will help us count everything */
-    private static void populateLinkedMap(ArrayList<String> arr){
+    public static void populateLinkedMap(ArrayList<String> arr){
         //loop through each string in the list
         for(String item : arr){
+            //item "cookies price 2.25 type food expiration 1/25/2016"
            //split the list into categories 
            String[] items = item.split(" ");
+           // items[0] = cookies
+           //items[1] = "price"
+           //item[2] = "2.25"
            //Then check the c00kie input replace all names that have 0 with o
            String productName = items[0].replaceAll("0", "o"); //eg cookies, milk bread etc
            //add the elements to the map
@@ -128,7 +133,7 @@ public class Main {
     }
 
     /* Fourth method: format output to match the output text*/
-    private static String formatOutput(){
+    public static String formatOutput(){
         String divider1 = "=============";
         String divider2 = "-------------"; 
 
@@ -166,7 +171,7 @@ public class Main {
     }
 
     /* Extra method to print the elements inside the LinkedHashMap */
-    private static void printLinkedHashMap(Map<String, Map<String, Integer>> map){
+    public static void printLinkedHashMap(Map<String, Map<String, Integer>> map){
         int count = 1;
         for(Map.Entry<String, Map<String, Integer>> entry : map.entrySet()){
             System.out.println("Entry #" + count + "\n" + 
