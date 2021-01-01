@@ -40,7 +40,7 @@ public class Main {
     /* First method: Turn the product string into an arrayList seperated 
       by the delimiter [^. @....etc] */
 
-    public static ArrayList<String> convertToArray(String str){
+    private static ArrayList<String> convertToArray(String str){
         //What do we need to do to the String before we operate on it?
         //Remove the special characters except for the # , . and / (why? we need these
         // to determine the price and delimination and date) 
@@ -75,7 +75,7 @@ public class Main {
     /* Second method:Remove the list elements that are not starting with the name of the product. This denotes an 
     error */
 
-    public static ArrayList<String> trimList(ArrayList<String> arr){
+    private static ArrayList<String> trimList(ArrayList<String> arr){
         int count = 0;
         //Loop through each of the elements in arr
         ArrayList<String> trimmedList = new ArrayList<>();
@@ -98,7 +98,7 @@ public class Main {
 
 
     /*Third method: Put the information into a LinkedHashmap, this will help us count everything */
-    public static void populateLinkedMap(ArrayList<String> arr){
+    private static void populateLinkedMap(ArrayList<String> arr){
         //loop through each string in the list
         for(String item : arr){
            //split the list into categories 
@@ -128,7 +128,7 @@ public class Main {
     }
 
     /* Fourth method: format output to match the output text*/
-    public static String formatOutput(){
+    private static String formatOutput(){
         String divider1 = "=============";
         String divider2 = "-------------"; 
 
@@ -166,7 +166,7 @@ public class Main {
     }
 
     /* Extra method to print the elements inside the LinkedHashMap */
-    public static void printLinkedHashMap(Map<String, Map<String, Integer>> map){
+    private static void printLinkedHashMap(Map<String, Map<String, Integer>> map){
         int count = 1;
         for(Map.Entry<String, Map<String, Integer>> entry : map.entrySet()){
             System.out.println("Entry #" + count + "\n" + 
@@ -184,7 +184,7 @@ public class Main {
         try{
             txtFile = new PrintWriter("test"+fileCounter+".txt");
             txtFile.println(output);
-            //fileCounter ++;
+            fileCounter ++;
             txtFile.close();
         } catch (FileNotFoundException e){
             System.err.println("File doesn't exist silly head. Try again");
